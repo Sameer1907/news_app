@@ -14,7 +14,7 @@ def post_list(request):
 def latest_news(request):
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
         all_articles = newsapi.get_everything(sources='bbc-news,the-verge',
-        from_parameter='2018-03-29',to='2018-03-30',language='en',sort_by='relevancy',page=2)
+        from_parameter='2018-04-04',to='2018-04-05',language='en',sort_by='relevancy',page=10)
         news_status = all_articles['status']
         news_count = all_articles['totalResults']
         news_list = all_articles['articles']
