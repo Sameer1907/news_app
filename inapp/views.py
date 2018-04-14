@@ -2,13 +2,10 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from newsapi import NewsApiClient
-<<<<<<< HEAD
 import logging
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
-=======
->>>>>>> 4d957bbabed388f0bdd4e3b1d6493fc75d02687e
 
 
 NEWS_API_TOKEN = '3384038df26c4de09255dd8e5dbaeb26'
@@ -20,23 +17,17 @@ def post_list(request):
 
 def latest_news(request):
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
-<<<<<<< HEAD
         sources = newsapi.get_sources()
         all_articles = newsapi.get_everything(sources=sources,
         from_parameter=None,to=None,language='en',)
-=======
         all_articles = newsapi.get_everything(sources='bbc-news,the-verge',
         from_parameter='2018-03-29',to='2018-03-30',language='en',sort_by='relevancy',page=2)
->>>>>>> 4d957bbabed388f0bdd4e3b1d6493fc75d02687e
         news_status = all_articles['status']
         news_count = all_articles['totalResults']
         news_list = all_articles['articles']
         for i in range(len(news_list)):
                 news_list[i]['publishedAt'] = news_list[i]['publishedAt'][:10]+' at '+news_list[i]['publishedAt'][12:-1]
         return render(request, 'inapp/latest_news.html', {'news_list':news_list, 'news_count':news_count, 'news_status':news_status})
-
-
-<<<<<<< HEAD
 
 def sports_news(request):
         #logger.log("Entered sports news")
@@ -130,5 +121,3 @@ def search_news(request):
         return render(request, 'inapp/search.html', {'query_str':query_str, 'news_list':news_list, 'news_count':news_count, 'news_status':news_status})
     else:
         return render(request,"inapp/search.html",{})
-=======
->>>>>>> 4d957bbabed388f0bdd4e3b1d6493fc75d02687e
