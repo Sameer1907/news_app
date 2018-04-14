@@ -20,8 +20,7 @@ def latest_news(request):
         sources = newsapi.get_sources()
         all_articles = newsapi.get_everything(sources=sources,
         from_parameter=None,to=None,language='en',)
-        all_articles = newsapi.get_everything(sources='bbc-news,the-verge',
-        from_parameter='2018-03-29',to='2018-03-30',language='en',sort_by='relevancy',page=2)
+        
         news_status = all_articles['status']
         news_count = all_articles['totalResults']
         news_list = all_articles['articles']
