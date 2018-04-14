@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-<<<<<<< HEAD
+
 
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -75,30 +75,10 @@ height: 60vh;}
             {% endif %}
             <a href="{{news.url}}">Click here for detailed news</a>
             <p>Published on: {{news.publishedAt}} </p><hr>
-=======
-<!--link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"-->
-{% comment %} <link rel="stylesheet" href="{% static 'css/inapp.css' %}"> {% endcomment %}
-</head>
-<body>
-    <div class="header">
-        <h1><center><b>Welcome To MY News</b></center></h1>
-    </div>
-    {% for news in news_list %}    
-        <div>
-            <h1>{{news.title}}</h1>
-            <img src="{{news.urlToImage}}"/>
-            <p>Source: {{news.source.name}}</p>
-            <p>News: {{news.description}}</p>
-            <a href="{{news.url}}">Click here for detailed news</a>
-            <p>Published on: {{news.publishedAt}} </p>
->>>>>>> 4d957bbabed388f0bdd4e3b1d6493fc75d02687e
-        </div>
+
+  </div>
     {% endfor %}
     
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 4d957bbabed388f0bdd4e3b1d6493fc75d02687e
+
