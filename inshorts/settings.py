@@ -25,7 +25,7 @@ SECRET_KEY = '_r*+yaaa7q^@gp-wzh291adx8j)2_i%(7xzi-m9hgx)w-$rrpx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['saisameer.pythonanywhere.com']
 
 
 # Application definition
@@ -123,3 +123,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS= (
     os.path.join(BASE_DIR,'inapp','static'),
     )
+
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
