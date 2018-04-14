@@ -9,7 +9,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <style>body{background-image: url("{% static '1.jpg' %}");
-}
+}img {
+width: 80vw;
+height: 60vh;}
         .news{text-align: center;}
         a{color:blue;}</style>
 </head>
@@ -20,47 +22,55 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
   
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="latest_news.html">Home</a>
+  <a class="navbar-brand" href="{% url 'latest_news' %}">Inshorts</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Business </a>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url 'latest_news'%}">Home </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Entertainment</a>
+        <a class="nav-link" href="{% url 'business_news'%}">Business </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">General</a>
+        <a class="nav-link" href="{% url 'entertainment_news'%}">Entertainment</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'general_news'%}">General</a>
       </li>
     <li class="nav-item ">
-        <a class="nav-link" href="#">Health </a>
+        <a class="nav-link" href="{% url 'health_news'%}">Health </a>
       </li>
 <li class="nav-item">
-        <a class="nav-link" href="#">Science</a>
+        <a class="nav-link" href="{% url 'science_news'%}">Science</a>
       </li>
-<li class="nav-item">
-        <a class="nav-link" href="{% url 'li' %}">Sports</a>
+<li class="nav-item ">
+        <a class="nav-link" href="{% url 'sports_news'%}">Sports</a>
       </li>
-<li class="nav-item">
-        <a class="nav-link" href="#">Technology</a>
+<li class="nav-item active">
+        <a class="nav-link" href="{% url 'technology_news'%}">Technology</a>
       </li></ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+     <form class="form-inline my-2 my-lg-0" method="post" action="{% url 'search_news' %}">
+{% csrf_token %}
+      <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" >
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
    
-    {% for news in news_list %}    
+    {% for news in news_list %}   
         <div class="news" >
             <h1>{{news.title}}</h1>
-            <img src="{{news.urlToImage}}"/>
+            {% if news.urlToImage %}
+                <img src="{{news.urlToImage}}"/>
+            {% endif %}
             <p>Source: {{news.source.name}}</p>
-            <p>News: {{news.description}}</p>
+           {% if news.description %}
+                <p>News: {{news.description}}</p>
+            {% endif %}
             <a href="{{news.url}}">Click here for detailed news</a>
             <p>Published on: {{news.publishedAt}} </p><hr>
         </div>
