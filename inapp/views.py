@@ -2,11 +2,6 @@ from django.shortcuts import render
 from django.utils import timezone
 from .models import Post
 from newsapi import NewsApiClient
-import logging
-
-# Get an instance of a logger
-logger = logging.getLogger(__name__)
-
 
 NEWS_API_TOKEN = '3384038df26c4de09255dd8e5dbaeb26'
 
