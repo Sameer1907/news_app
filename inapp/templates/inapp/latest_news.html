@@ -15,7 +15,8 @@ width: 80vw;
 height: 60vh;}
 
         .news{text-align: center;}
-        a{color:blue;}</style>
+        a{color:blue;
+}</style>
 </head>
 <body>
 
@@ -73,7 +74,7 @@ height: 60vh;}
             {% if news.description %}
                 <p>News: {{news.description}}</p>
             {% endif %}
-            <a href="{{news.url}}">Click here for detailed news</a>
+            <a href="{{news.url}}" target="_blank">Click here for detailed news</a>
             <p>Published on: {{news.publishedAt}} </p><hr>
 
   </div>
