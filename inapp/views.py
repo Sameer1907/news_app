@@ -3,7 +3,7 @@ from django.utils import timezone
 from .models import Post
 from newsapi import NewsApiClient
 
-NEWS_API_TOKEN = '3384038df26c4de09255dd8e5dbaeb26'
+NEWS_API_TOKEN = 'ad8ad995f5ae4d30aaeaf323902f265c'
 
 # Create your views here.
 def post_list(request):
