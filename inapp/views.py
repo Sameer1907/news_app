@@ -14,7 +14,7 @@ def latest_news(request):
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
        
         all_articles = newsapi.get_everything(sources='bbc-news,the-verge,cnn',
-        from_parameter=None,to=None,language='en',)
+        language='en',)
         
         news_status = all_articles['status']
         news_count = all_articles['totalResults']
