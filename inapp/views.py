@@ -39,7 +39,7 @@ def sports_news(request):
 def business_news(request):
         #logger.log("Entered sports news")
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
-        top_headlines = newsapi.get_top_headlines(category='business',language='en',country='in',)
+        top_headlines = newsapi.get_top_headlines(category='business',language='en')
         news_status = top_headlines['status']
         news_count = top_headlines['totalResults']
         news_list = top_headlines['articles']
