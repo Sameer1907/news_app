@@ -4,6 +4,7 @@ from .models import Post
 from newsapi import NewsApiClient
 
 NEWS_API_TOKEN = 'ad8ad995f5ae4d30aaeaf323902f265c'
+##mytoken
 
 # Create your views here.
 def post_list(request):
@@ -14,7 +15,7 @@ def latest_news(request):
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
        
         all_articles = newsapi.get_everything(sources='bbc-news,the-verge,cnn',
-        language='en',)
+        from_parameter=None,to=None,language='en',)
         
         news_status = all_articles['status']
         news_count = all_articles['totalResults']
@@ -26,6 +27,7 @@ def latest_news(request):
 def sports_news(request):
         #logger.log("Entered sports news")
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
+        sources = newsapi.get_sources()
         top_headlines = newsapi.get_top_headlines(category='sports',language='en',country='in',)
         news_status = top_headlines['status']
         news_count = top_headlines['totalResults']
@@ -38,7 +40,7 @@ def sports_news(request):
 def business_news(request):
         #logger.log("Entered sports news")
         newsapi = NewsApiClient(api_key=NEWS_API_TOKEN)
-        top_headlines = newsapi.get_top_headlines(category='business',language='en', country='in')
+        top_headlines = newsapi.get_top_headlines(category='business',language='en',country='in',)
         news_status = top_headlines['status']
         news_count = top_headlines['totalResults']
         news_list = top_headlines['articles']
