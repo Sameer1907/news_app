@@ -25,7 +25,9 @@ SECRET_KEY = '_r*+yaaa7q^@gp-wzh291adx8j)2_i%(7xzi-m9hgx)w-$rrpx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['saisameer.pythonanywhere.com']
+ALLOWED_HOSTS = ['saisameer.pythonanywhere.com',
+                '*'
+                ]
 
 
 # Application definition
