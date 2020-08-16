@@ -1,2 +1,2 @@
 WORLD WIDE NEWS
-Modelled WORLDWIDE NEWS  website adopting Python Django framework.
+A News website built using Python Django framework with the help of news API's.
